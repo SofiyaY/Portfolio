@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IMAG2024 — Image Processing Project — Portfolio</title>
+  <meta name="description" content="Details for IMAG2024 project: gradients, diffusion, edge detection; summary, highlights, and report." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">SofiyaY</a>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>IMAG2024 — Image Processing Project</h1>
+  <p class="muted">Course: Mathematics for Engineering 2 (IMAG2024), Spring 2024</p>
+
+  <img src="https://www.researchgate.net/profile/Neda-Ahmadi/publication/280600440/figure/fig3/AS:616353920741403@1523961634719/Edge-detection-by-Canny-and-Laplacian-of-Gaussian-LoG-methods.png" alt="Edge detection figure (Canny and LoG)" style="width:100%; max-height:360px; object-fit: cover; object-position: center; border: 1px solid var(--border); border-radius: 12px;" />
+
+        <p>
+          This project explores core image processing concepts: computing gradients, applying diffusion (via Euler integration and the Laplace operator),
+          and performing edge detection using thresholding on gradient magnitude. We experimented with parameters (∆t, λ, threshold c) to balance noise reduction and edge preservation.
+        </p>
+
+        <div class="actions" style="margin: 12px 0; display: flex; gap: 8px; flex-wrap: wrap;">
+          <a class="btn" href="../assets/docs/imag2024-math-report-redacted.pdf" target="_blank" rel="noopener">View Report (PDF)</a>
+          <a class="btn" href="../index.html#projects">Back to Projects</a>
+        </div>
+        
+
+        <h2>Highlights</h2>
+        <ul class="skills">
+          <li>Gradient computation (fx, fy) and magnitude scaling</li>
+          <li>Diffusion using forward Euler and the Laplacian</li>
+          <li>Parameter exploration (∆t, λ, threshold c) for edge preservation</li>
+          <li>Edge detection by thresholding gradient magnitude</li>
+          <li>Visualization with Matplotlib</li>
+        </ul>
+
+        <h2>Methods</h2>
+        <ul class="contact">
+          <li>Used NumPy's <code>np.gradient</code> to compute partial derivatives along axes.</li>
+          <li>Applied Laplacian (second derivatives) and updated intensities iteratively: <code>image += ∆t * (f_xx + f_yy)</code>.</li>
+          <li>Explored λ-dependent diffusion to preserve sharp edges longer.</li>
+          <li>Performed edge detection by thresholding scaled gradient magnitude.</li>
+        </ul>
+
+        <h2>What I learned</h2>
+        <ul class="contact">
+          <li>Balancing noise reduction and detail preservation via parameter tuning.</li>
+          <li>Practical application of numerical methods (Euler integration) to images.</li>
+          <li>Clear documentation, figure labeling, and reproducible experiments.</li>
+        </ul>
+
+        <h2>Artifacts</h2>
+        <ul class="contact">
+          <li><strong>Report (PDF):</strong> linked above.</li>
+          <li><strong>Figures:</strong> Gradient/edge visuals and diffusion results included in the report.</li>
+        </ul>
+
+        
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> SofiyaY. Built with HTML/CSS/JS.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+    });
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+</body>
+</html>

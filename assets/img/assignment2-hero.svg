@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#065f46"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1200" height="360" fill="url(#g2)"/>
+  <g fill="#ffffff" font-family="Segoe UI, Roboto, Arial" text-anchor="start">
+    <text x="40" y="120" font-size="56" font-weight="700">Countries Dashboard Service</text>
+    <text x="40" y="175" font-size="28" opacity="0.9">Golang · Firebase/Firestore · Docker</text>
+    <text x="40" y="225" font-size="22" opacity="0.8">Endpoints: /registrations · /dashboards · /notifications · /status</text>
+  </g>
+  <g transform="translate(940,40)">
+    <rect rx="12" ry="12" width="220" height="220" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)"/>
+    <text x="110" y="105" font-size="64" fill="#ffffff" opacity="0.95" text-anchor="middle">Go</text>
+    <text x="110" y="150" font-size="28" fill="#ffffff" opacity="0.8" text-anchor="middle">+ Firebase</text>
+  </g>
+</svg>

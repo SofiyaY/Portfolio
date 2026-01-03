@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — SofiyaY</title>
+  <meta name="description" content="Portfolio of projects, skills, and contact details." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">SofiyaY</a>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <ul id="nav-menu" class="nav-menu">
+          <li>
+            <a href="#about">
+              <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4" fill="currentColor"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span>About</span>
+            </a>
+          </li>
+          <li>
+            <a href="#skills">
+              <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 7v-7h7v7h-7z" fill="currentColor"/></svg>
+              <span>Skills</span>
+            </a>
+          </li>
+          <li>
+            <a href="#projects">
+              <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v4H3V5zm0 6h18v8H3v-8z" fill="currentColor"/></svg>
+              <span>Projects</span>
+            </a>
+          </li>
+          <li>
+            <a href="#contact">
+              <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V7a2 2 0 012-2zm0 2l8 5 8-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="section hero">
+      <div class="container">
+        <div class="hero-layout">
+          <figure class="portrait" aria-label="Portfolio portrait">
+            <img src="bilde-sofiya.jpg" alt="Portrait" />
+          </figure>
+          <div class="intro">
+            <h1 class="hero-title">Hi! I'm Sofiya — I build practical backend APIs, computer vision, and solid Java OOP</h1>
+            <p>
+              Recent work spans Go REST services (with Firebase/Firestore), a Java train dispatch system, and image processing
+              projects in Python. Explore the highlights below and feel free to reach out.
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#projects">View projects</a>
+              <a class="btn" href="#contact">Get in touch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2>Skills</h2>
+        <ul class="skills">
+          <li>Go (HTTP, gorilla/mux)</li>
+          <li>Java (OOP, JUnit, Maven)</li>
+          <li>Python (OpenCV, NumPy, Matplotlib)</li>
+          <li>Cloud & DevOps (Docker, Firestore)</li>
+          <li>Data & Algorithms (graphs, image processing)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <div class="filters">
+            <label>
+              <span>Category</span>
+              <select id="filterCategory">
+                <option value="all">All</option>
+              </select>
+            </label>
+            <label class="search">
+              <span>Search</span>
+              <input id="searchInput" type="search" placeholder="Search title, description, tags…" />
+            </label>
+          </div>
+        </div>
+
+        <div id="tagChips" class="tag-chips" aria-live="polite"></div>
+        <div id="projectsGrid" class="grid" aria-live="polite" aria-busy="true"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Prefer email for quick replies. LinkedIn and GitHub below:</p>
+        <ul class="contact" role="list">
+          <li>
+            <a class="contact-card" href="mailto:sofiya.yia@hotmail.com">
+              <span class="icon email" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              </span>
+              <span class="label">
+                <strong>Email</strong>
+                <span>sofiya.yia@hotmail.com</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="contact-card" href="https://www.linkedin.com/in/sofiya-y-i-a-b30086343" target="_blank" rel="noopener">
+              <span class="icon linkedin" aria-hidden="true">
+                <img src="https://static.vecteezy.com/system/resources/previews/018/910/721/non_2x/linkedin-logo-linkedin-symbol-linkedin-icon-free-free-vector.jpg" alt="" />
+              </span>
+              <span class="label">
+                <strong>LinkedIn</strong>
+                <span>linkedin.com/in/sofiya-y-i-a-b30086343</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="contact-card" href="https://github.com/SofiyaY" target="_blank" rel="noopener">
+              <span class="icon github" aria-hidden="true">
+                <img src="https://cdn.simpleicons.org/github/ffffff" alt="" />
+              </span>
+              <span class="label">
+                <strong>GitHub</strong>
+                <span>github.com/SofiyaY</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> SofiyaY. Built with HTML/CSS/JS.</small>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js" defer></script>
+</body>
+</html>

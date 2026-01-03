@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Train Dispatch System (Java) — Portfolio</title>
+  <meta name="description" content="Details for the Train Dispatch System Java project: course context, features, how to run, and artifacts." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">SofiyaY</a>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+  <h1>Train Dispatch System (Java)</h1>
+  <p class="muted">Programming 1 (IDATG1003), first year — Grade: <strong>B</strong></p>
+  <img src="../assets/img/train-focus.jpg" alt="Train" style="width:100%; max-height:360px; object-fit: cover; object-position: left center; border: 1px solid var(--border); border-radius: 12px;" />
+        <p>
+          A Java-based train dispatch system built to practice object-oriented programming (OOP), clean design, and unit testing.
+          The system models train departures, registers and prints schedules, handles delays/validation, and provides a simple UI.
+        </p>
+
+        <div class="actions" style="margin: 12px 0; display: flex; gap: 8px; flex-wrap: wrap;">
+          <a class="btn" href="../assets/docs/train-dispatch-report.pdf" target="_blank" rel="noopener">View Report (PDF)</a>
+          <a class="btn" href="../assets/downloads/train-dispatch.zip" target="_blank" rel="noopener">Download Project (ZIP)</a>
+          <a class="btn" href="https://github.com/SofiyaY/train-dispatch-system" target="_blank" rel="noopener">View Repository</a>
+          <a class="btn" href="../index.html#projects">Back to Projects</a>
+        </div>
+
+        <h2>Highlights</h2>
+        <ul class="skills">
+          <li>Layered design: domain (TrainDeparture), register, printer, utility</li>
+          <li>OOP principles: encapsulation, validation, modular responsibilities</li>
+          <li>Unit tests (JUnit) for core behaviors</li>
+          <li>Maven build, simple CLI/UI for interaction</li>
+          <li>Streams and basic functional programming elements</li>
+        </ul>
+
+        <h2>What I learned</h2>
+        <ul class="contact">
+          <li>Structured, well-documented code aligned with good design principles (coupling/cohesion).</li>
+          <li>Applying OOP concepts (classes, objects, encapsulation) to model a real domain.</li>
+          <li>Working with collections, control structures, and collaboration between objects.</li>
+          <li>Basic exception handling and writing robust code.</li>
+          <li>Unit testing with JUnit and using an IDE/debugger effectively.</li>
+          <li>Intro to functional programming elements (lambdas/streams) with collections.</li>
+        </ul>
+
+        <h2>Key classes</h2>
+        <ul class="contact">
+          <li><strong>traindeparture.TrainDeparture</strong> — Core model with fields like train number, line, destination, track, departure time, delay, and validation.</li>
+          <li><strong>trainregister.TrainRegister</strong> — Register to add, list, and manage departures.</li>
+          <li><strong>printer.TrainPrinter</strong> — Output formatting for readable schedules.</li>
+          <li><strong>utility.InputHandler</strong> — Input parsing/validation utilities.</li>
+          <li><strong>edu.ntnu.stud.TrainDispatchApp</strong> — Entry point/main application.</li>
+        </ul>
+
+        <h2>How to run (locally)</h2>
+        <p>Option A: Use your IDE (IntelliJ/Eclipse) to open the Maven project and run the main class <code>edu.ntnu.stud.TrainDispatchApp</code>.</p>
+        <p>Option B: Command line:</p>
+        <pre><code class="language-powershell"># Adjust the path to your local project folder
+cd "c:\Users\Bruker\OneDrive\Skrivebord\mappe-idatg1003-traindispatchsystem-SofiyaY"
+
+# Build & run tests
+mvn -q clean test
+
+# Package
+mvn -q clean package
+
+# Run main class directly from compiled classes
+java -cp target/classes edu.ntnu.stud.TrainDispatchApp
+</code></pre>
+        
+
+        <h2>Course context</h2>
+        <p>
+          Built in the NTNU course <strong>Programming 1 (IDATG1003)</strong>. Topics include OOP design, control structures, collections,
+          collaboration between objects, streams, exceptions, debugging, unit testing, and IDE usage.
+        </p>
+
+        <h2>What’s included here</h2>
+        <ul class="contact">
+          <li><strong>Project report (PDF):</strong> linked above.</li>
+          <li><strong>Project ZIP:</strong> download link above. If the link returns 404, place the ZIP at <code>assets/downloads/train-dispatch.zip</code>.</li>
+        </ul>
+
+        
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> SofiyaY. Built with HTML/CSS/JS.</small>
+    </div>
+  </footer>
+
+  <script>
+    // Minimal JS: year + theme toggle + mobile nav (reuse from main without network)
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+    });
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+</body>
+</html>

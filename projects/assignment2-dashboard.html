@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Countries Dashboard Service (Go + Firebase) — Portfolio</title>
+  <meta name="description" content="Details for Cloud Technologies Assignment 2: dashboard service in Go with Firestore, webhooks, and Docker deployment." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">SofiyaY</a>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Countries Dashboard Service (Go + Firebase)</h1>
+  <img src="https://middleware.io/wp-content/uploads/2023/02/Grafana.jpg" alt="Countries Dashboard Service" style="width:100%; max-height:360px; object-fit: cover; object-position: top center; border: 1px solid var(--border); border-radius: 12px;" />
+        <div class="actions" style="margin:12px 0; display:flex; gap:8px; flex-wrap:wrap;">
+          <a class="btn" href="../assets/downloads/assignment2-dashboard.zip" target="_blank" rel="noopener">Download Project (ZIP)</a>
+          <a class="btn" href="../index.html#projects">Back to Projects</a>
+        </div>
+
+        <p>
+          A stateful REST service in Go that lets you register dashboard configurations, retrieve populated dashboards
+          (country + weather + currency), and manage event webhooks. Configurations and webhooks are persisted in Firestore.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+          We designed the API around clear responsibilities: registrations manage dashboard intents, dashboards resolve and
+          aggregate live data on demand, notifications emit webhooks for changes and invocations, and status reports upstream
+          availability and service uptime. Configurations survive restarts via Firestore, and handlers are written to be testable
+          with <code>httptest</code> and stubs for upstream APIs.
+        </p>
+
+        <h2>Architecture & persistence</h2>
+        <ul class="contact">
+          <li><strong>Registrations:</strong> CRUD over dashboard configs (country/ISO, feature flags, target currencies).</li>
+          <li><strong>Dashboards:</strong> on-demand aggregation from REST Countries, Open-Meteo, and Currency APIs.</li>
+          <li><strong>Notifications:</strong> webhook registry with events (REGISTER, CHANGE, DELETE, INVOKE).</li>
+          <li><strong>Storage:</strong> Firebase/Firestore for configs and webhooks; survives restarts.</li>
+          <li><strong>Status:</strong> upstream codes, number of webhooks, version, uptime.</li>
+        </ul>
+
+        
+
+        <h2>Endpoints</h2>
+        <ul class="contact">
+          <li><code>POST /dashboard/v1/registrations/</code> — register a dashboard configuration</li>
+          <li><code>GET /dashboard/v1/registrations/{id}</code> — view configuration</li>
+          <li><code>GET /dashboard/v1/registrations/</code> — list configurations</li>
+          <li><code>PUT /dashboard/v1/registrations/{id}</code> — replace configuration</li>
+          <li><code>DELETE /dashboard/v1/registrations/{id}</code> — delete configuration</li>
+          <li><code>GET /dashboard/v1/dashboards/{id}</code> — retrieve populated dashboard</li>
+          <li><code>POST /dashboard/v1/notifications/</code> — register webhook</li>
+          <li><code>DELETE /dashboard/v1/notifications/{id}</code> — delete webhook</li>
+          <li><code>GET /dashboard/v1/notifications/{id}</code> — view webhook</li>
+          <li><code>GET /dashboard/v1/notifications/</code> — list webhooks</li>
+          <li><code>GET /dashboard/v1/status/</code> — service status</li>
+        </ul>
+
+        <h2>Tech highlights</h2>
+        <ul class="skills">
+          <li>Persistence with <strong>Firebase/Firestore</strong></li>
+          <li>Webhook events (REGISTER, CHANGE, DELETE, INVOKE)</li>
+          <li>Countries, Meteo, and Currency APIs</li>
+          <li>Dockerization and IaaS deployment (OpenStack SkyHigh)</li>
+          <li>Automated handler tests with <code>httptest</code> and stubs</li>
+        </ul>
+
+        <h2>How to run (locally)</h2>
+        <p>Prerequisites: place your Firebase Admin SDK credentials JSON and update the path in <code>main.go</code> (see code).</p>
+        <pre><code class="language-powershell"># Navigate to the assignment folder
+cd "c:\Users\Bruker\OneDrive - NTNU\semester 4\Cloud Technologies\assignment-2"
+
+# Set port (optional)
+$env:PORT = "8080"
+
+# Run the service
+go run ./main.go
+
+# Try homepage
+http://localhost:8080/
+
+# Example: Register a dashboard (use a REST client or PowerShell Invoke-RestMethod)
+# POST http://localhost:8080/dashboard/v1/registrations/
+{
+  "country": "Norway",
+  "isoCode": "NO",
+  "features": {
+    "temperature": true,
+    "precipitation": true,
+    "capital": true,
+    "coordinates": true,
+    "population": true,
+    "area": true,
+    "targetCurrencies": ["EUR", "USD", "SEK"]
+  }
+}
+</code></pre>
+
+        <h2>Testing & deployment</h2>
+        <ul class="contact">
+          <li>Handlers covered with <code>httptest</code>; upstream APIs stubbed to avoid rate limits.</li>
+          <li>Dockerized image prepared for IaaS (OpenStack SkyHigh) deployment.</li>
+          <li>Webhook receivers verified with services like <code>webhook.site</code>.</li>
+        </ul>
+
+        <h2>What I learned</h2>
+        <ul class="contact">
+          <li>Designing stateful REST services and persisting data reliably.</li>
+          <li>Integrating multiple external APIs efficiently and caching where helpful.</li>
+          <li>Implementing webhooks and testing with external receivers (e.g., webhook.site).</li>
+          <li>Containerizing services and deploying to IaaS.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> SofiyaY. Built with HTML/CSS/JS.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+    });
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+</body>
+</html>

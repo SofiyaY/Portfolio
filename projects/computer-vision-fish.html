@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IDATG2206 — Fish/No Fish Detection — Portfolio</title>
+  <meta name="description" content="Computer Vision group project: edge detection, contours, template matching, and preprocessing to detect fish in images." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">SofiyaY</a>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>IDATG2206 — Fish/No Fish Detection</h1>
+        <p class="muted">Course: Computer Vision (IDATG2206), 2025 • Group project</p>
+
+        <img src="../assets/img/cv-fish.png" alt="Fish tank image" style="width:100%; max-height:360px; object-fit: cover; object-position: center; border: 1px solid var(--border); border-radius: 12px;" />
+
+        <p>
+          We explored classical image processing techniques to detect whether an image contains a fish: gradient-based edge detection with diffusion, Canny edges with contour detection, and template matching. The code intentionally keeps things simple and runnable on a local machine.
+        </p>
+
+        <div class="actions" style="margin: 12px 0; display: flex; gap: 8px; flex-wrap: wrap;">
+          <a class="btn" href="../assets/docs/cv-fish-report.pdf" target="_blank" rel="noopener">View Report (PDF)</a>
+          <a class="btn" href="../assets/downloads/cv-fish-project.zip" target="_blank" rel="noopener">Download Project (ZIP)</a>
+          <a class="btn" href="../index.html#projects">Back to Projects</a>
+        </div>
+
+        <h2>Highlights</h2>
+        <ul class="skills">
+          <li>Gradient-based edges with optional diffusion (NumPy)</li>
+          <li>Canny edges and contour detection (OpenCV)</li>
+          <li>Template matching comparisons across methods</li>
+          <li>Image preprocessing batch pipeline (OpenCV transforms)</li>
+        </ul>
+
+        <h2>Methods</h2>
+        <ul class="contact">
+          <li><strong>Gradient edges:</strong> compute fx, fy via <code>np.gradient</code>; scale magnitude; threshold to binary edges.</li>
+          <li><strong>Diffusion:</strong> forward Euler with Laplacian-like updates; tunable <code>λ</code>, <code>Δt</code>, and iterations.</li>
+          <li><strong>Canny + contours:</strong> blur → Canny → <code>findContours</code> and visualize outlines.</li>
+          <li><strong>Template matching:</strong> compare cropped fish template against frames using OpenCV metrics.</li>
+          <li><strong>Preprocessing:</strong> brightness/contrast, colorspace conversions (HSV, YCrCb), flips, blur, rotate, resize, Laplacian.</li>
+        </ul>
+
+        <h2>Run locally</h2>
+        <p>Place the code and images in the same folder. Install dependencies, then run each script:</p>
+        <pre><code class="language-powershell"># From the project folder with the images
+# Required packages
+pip install numpy matplotlib opencv-python scikit-image
+
+# Run the scripts
+python EdgeDetection.py
+python Preprocessing.py
+python TemplateMatching.py
+</code></pre>
+        <p class="muted">Images used by the code: <code>fishtank.png</code> and <code>croppedfish.png</code> must be in the same directory as the scripts.</p>
+
+        <h2>Notes</h2>
+        <ul class="contact">
+          <li>Template matching works only when the template is an exact sub-image (scale/rotation/lighting sensitive).</li>
+          <li>Preprocessing pipeline writes outputs to <code>preprocessed_images/</code>.</li>
+          <li>For more robust detection, consider ML-based approaches (SSD MobileNet, YOLO) with labeled data.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> SofiyaY. Built with HTML/CSS/JS.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+    });
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+</body>
+</html>

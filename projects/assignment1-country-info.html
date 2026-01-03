@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Country Information Service (Go) — Portfolio</title>
+  <meta name="description" content="Details for Cloud Technologies Assignment 1: REST service in Go returning country info, population, and diagnostics." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">SofiyaY</a>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Country Information Service (Go)</h1>
+  <img src="https://mobisoftinfotech.com/resources/wp-content/uploads/2022/02/hire-golang-developers-1.png" alt="Golang" style="width:100%; max-height:360px; object-fit: cover; object-position: center; border: 1px solid var(--border); border-radius: 12px;" />
+        <div class="actions" style="margin:12px 0; display:flex; gap:8px; flex-wrap:wrap;">
+          <a class="btn" href="../assets/downloads/assignment1-country-info.zip" target="_blank" rel="noopener">Download Project (ZIP)</a>
+          <a class="btn" href="../index.html#projects">Back to Projects</a>
+        </div>
+
+        <p>
+          A small REST web application in Go that aggregates country data from external APIs
+          and exposes a clean client-facing interface for country info, population history, and service diagnostics.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+          Goal: provide a simple facade over two course-hosted services (CountriesNow, REST Countries) and unify their
+          outputs into one consistent schema. I focused on concise endpoints, predictable JSON structures, and graceful
+          error handling. Cities are listed alphabetically and can be limited via a query parameter to keep responses fast.
+        </p>
+
+        <h2>Architecture</h2>
+        <ul class="contact">
+          <li><strong>Routing:</strong> gorilla/mux with three handlers: info, population, status.</li>
+          <li><strong>Info:</strong> merges core country attributes and capital + cities listing (ascending order).</li>
+          <li><strong>Population:</strong> filters years via <code>limit=start-end</code>, computes mean (rounded integer).</li>
+          <li><strong>Status:</strong> returns upstream HTTP codes and uptime since service start.</li>
+          <li><strong>UX:</strong> helpful guidance messages when parameters are missing or invalid.</li>
+        </ul>
+
+        
+
+        <h2>Endpoints</h2>
+        <ul class="contact">
+          <li><code>GET /countryinfo/v1/info/{code}{?limit=10}</code> — general country info (name, continents, population, languages, borders, flag, capital, cities)</li>
+          <li><code>GET /countryinfo/v1/population/{code}{?limit=start-end}</code> — population values per year and mean</li>
+          <li><code>GET /countryinfo/v1/status</code> — dependency status and uptime</li>
+        </ul>
+
+        <h2>Implementation</h2>
+        <ul class="skills">
+          <li>Routing with <strong>gorilla/mux</strong></li>
+          <li>External APIs: CountriesNow and REST Countries (course-hosted instances)</li>
+          <li>Graceful error handling and input validation</li>
+          <li>Alphabetical city listing with optional limit</li>
+        </ul>
+
+        <h2>How to run (locally)</h2>
+        <pre><code class="language-powershell"># Navigate to the assignment folder
+cd "c:\Users\Bruker\OneDrive - NTNU\semester 4\Cloud Technologies\Assignment1"
+
+# Run the service
+go run ./main.go
+
+# Try it in your browser
+# Info
+http://localhost:8080/countryinfo/v1/info/no
+# Population (2010-2015)
+http://localhost:8080/countryinfo/v1/population/no?limit=2010-2015
+# Status
+http://localhost:8080/countryinfo/v1/status
+</code></pre>
+
+        <h2>Challenges & results</h2>
+        <ul class="contact">
+          <li>Different upstream schemas required careful mapping and consistent naming.</li>
+          <li>Limiting city lists and population ranges improved responsiveness.</li>
+          <li>Clear errors helped debugging during rate limits or upstream hiccups.</li>
+        </ul>
+
+        <h2>What I learned</h2>
+        <ul class="contact">
+          <li>Designing clear REST interfaces and mapping customer specs to routes and JSON schemas.</li>
+          <li>Calling and composing third-party APIs efficiently, with rate-limit awareness.</li>
+          <li>Robust error handling and helpful user-readable guidance.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> SofiyaY. Built with HTML/CSS/JS.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+    });
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+</body>
+</html>
