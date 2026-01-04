@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fitness Tracker Database Design (Group Project) — Portfolio</title>
+  <meta name="description" content="Group project: ER/EER modeling, logical schema, normalization to 3NF, and Streamlit CRUD with visualization. Built with MySQL/SQLite and Plotly." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">SofiyaY</a>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+  <h1>Fitness Tracker Database Design</h1>
+  <p class="muted">Course: Databases (IDATG2002) • Spring 2026 • Group project</p>
+        <img src="https://cdn.corporatefinanceinstitute.com/assets/database.jpeg" alt="Database" style="width:100%; max-height:360px; object-fit: cover; object-position: center; border: 1px solid var(--border); border-radius: 12px;" />
+        <div class="actions" style="margin:12px 0; display:flex; gap:8px; flex-wrap:wrap;">
+          <a class="btn" href="../assets/docs/database-design-report-sanitized.pdf" target="_blank" rel="noopener">View Report (PDF)</a>
+          <a class="btn" href="../index.html#projects">Back to Projects</a>
+        </div>
+
+        <p>
+          Group assignment focused on designing and implementing a relational database for a fitness tracker scenario,
+          and building a Streamlit interface to demonstrate CRUD operations and a visualization. We practiced end-to-end
+          data modeling and hands-on SQL with MySQL/SQLite.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+          The deliverables included:
+        </p>
+        <ul class="contact">
+          <li>ER/EER diagram and data dictionary for core entities.</li>
+          <li>Logical schema with primary/foreign keys and integrity constraints.</li>
+          <li>Normalization of all tables (1NF, 2NF, 3NF) to reduce redundancy.</li>
+          <li>Streamlit CRUD demo over selected tables (Create, Read, Update, Delete).</li>
+          <li>Visualization using Plotly based on a multi-table SQL query (joins/aggregates).</li>
+        </ul>
+
+        <h2>Database design</h2>
+        <ul class="contact">
+          <li><strong>Entities & relations:</strong> users, activities/sessions, devices, metrics; clear PK/FK structure.</li>
+          <li><strong>Integrity:</strong> constraints for referential integrity and sane defaults.</li>
+          <li><strong>Normalization:</strong> refactored attributes to achieve 3NF; avoided duplication and anomalies.</li>
+          <li><strong>Implementation:</strong> MySQL and SQLite, with sample data seeded for the demo.</li>
+        </ul>
+
+        <h2>Streamlit CRUD</h2>
+        <ul class="contact">
+          <li><strong>Read:</strong> interactive tables for browsing records.</li>
+          <li><strong>Create:</strong> input forms and validation for inserts.</li>
+          <li><strong>Update:</strong> editable forms to modify records safely.</li>
+          <li><strong>Delete:</strong> guarded deletions with confirmations.</li>
+          <li><strong>Security:</strong> basic measures around input validation and safe SQL operations.</li>
+        </ul>
+
+        <h2>Visualization</h2>
+        <ul class="contact">
+          <li>Complex SQL query (joins/aggregates) distilled into a Plotly chart to surface useful business insights.</li>
+          <li>Clear caption summarizing findings and how they inform decision-making.</li>
+        </ul>
+
+        <h2>What I learned</h2>
+        <ul class="contact">
+          <li>Data modeling (ER/EER) and translating models into robust relational schemas.</li>
+          <li>Practical SQL across MySQL/SQLite, including constraints, indexing basics, and query optimization.</li>
+          <li>Building simple, useful UIs with Streamlit to exercise CRUD and visualizations.</li>
+          <li>Ensuring data integrity and reducing redundancy via normalization.</li>
+        </ul>
+
+        <h2>Improvements</h2>
+        <ul class="contact">
+          <li>Expand indexing strategy and profiling for performance on larger datasets.</li>
+          <li>Strengthen constraints, migrations, and test coverage across CRUD flows.</li>
+          <li>Add auth and roles to Streamlit app for safer multi-user scenarios.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> SofiyaY. Built with HTML/CSS/JS.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+    });
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+</body>
+</html>

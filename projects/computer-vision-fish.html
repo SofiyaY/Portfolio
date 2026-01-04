@@ -27,8 +27,8 @@
   <main>
     <section class="section">
       <div class="container">
-        <h1>IDATG2206 — Fish/No Fish Detection</h1>
-        <p class="muted">Course: Computer Vision (IDATG2206), 2025 • Group project</p>
+  <h1>IDATG2206 — Fish/No Fish Detection</h1>
+  <p class="muted">Course: Computer Vision (IDATG2206), 2025 • Group project</p>
 
         <img src="../assets/img/cv-fish.png" alt="Fish tank image" style="width:100%; max-height:360px; object-fit: cover; object-position: center; border: 1px solid var(--border); border-radius: 12px;" />
 
@@ -77,6 +77,15 @@ python TemplateMatching.py
           <li>Template matching works only when the template is an exact sub-image (scale/rotation/lighting sensitive).</li>
           <li>Preprocessing pipeline writes outputs to <code>preprocessed_images/</code>.</li>
           <li>For more robust detection, consider ML-based approaches (SSD MobileNet, YOLO) with labeled data.</li>
+        </ul>
+
+        <h2>Improvements</h2>
+        <ul class="contact">
+          <li>Adopt ML-based detectors (e.g., YOLOv5/SSD) with a small labeled dataset to handle scale/rotation more robustly.</li>
+          <li>Normalize lighting and color (CLAHE/white balance) before detection to reduce false negatives in darker frames.</li>
+          <li>Introduce template invariance (multi-scale, rotation augmentation) or use feature-based matching (ORB/SIFT).</li>
+          <li>Quantify performance with precision/recall on a validation split to guide threshold selection objectively.</li>
+          <li>Automate preprocessing and evaluation with scripts and config files for reproducibility.</li>
         </ul>
       </div>
     </section>

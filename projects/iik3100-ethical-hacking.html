@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ethical Hacking & Penetration Testing — Portfolio</title>
+  <meta name="description" content="Portfolio for Ethical Hacking & Penetration Testing. CTF-style labs with a 1-month home task (30%) and a 24-hour final task (70%). Grade A." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <style>
+    .doc-links a { display:inline-flex; align-items:center; gap:8px; }
+    .doc-links svg { width:18px; height:18px; }
+  </style>
+  
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">SofiyaY</a>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+  <h1>Ethical Hacking & Penetration Testing</h1>
+        <p class="muted">Course: IIK3100 • Autumn 2025 • Portfolio assessment • Individual • Grade: <strong>A</strong></p>
+  <img src="https://getoppos.com/wp-content/uploads/2023/07/Ethical-Hacking-and-Penetration-Testing-1-1-1536x864.jpg" alt="Ethical Hacking & Penetration Testing" style="width:100%; max-height:360px; object-fit: cover; object-position: center; border: 1px solid var(--border); border-radius: 12px;" />
+        <div class="actions" style="margin:12px 0; display:flex; gap:8px; flex-wrap:wrap;">
+          <a class="btn" href="../assets/docs/IIK3100HomeTask.pdf" target="_blank" rel="noopener">View Home Task (1‑month)</a>
+          <a class="btn" href="../assets/docs/IIK3100Final-Task-Report.pdf" target="_blank" rel="noopener">View Final Task (24‑hour)</a>
+          <a class="btn" href="../index.html#projects">Back to Projects</a>
+        </div>
+
+        <p>
+          This course combined theory with hands‑on security testing through weekly CTF‑style labs. The assessment was a portfolio:
+          a home task over 1 month (30%) and a 24‑hour final task (70%). Overall grade: A.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+          I practiced the full penetration testing flow on realistic targets: information gathering, network reconnaissance,
+          service enumeration, exploitation of web and binary vulnerabilities, and documenting findings with clear remediation advice.
+          The work emphasized safe, ethical practice and respect for legal boundaries when testing systems.
+        </p>
+
+        <h2>Learning outcomes (evidence)</h2>
+        <ul class="contact">
+          <li><strong>Knowledge:</strong> Security testing principles, reconnaissance strategies, common web and binary vuln classes, and legal/ethical constraints.</li>
+          <li><strong>Skills:</strong> Conducted practical pentests with up‑to‑date tools and techniques; evaluated risk and proposed fixes; verified CVEs and applied patches/guidance.</li>
+          <li><strong>General competence:</strong> Improved ability to protect and harden systems against modern cyber‑attacks.</li>
+        </ul>
+
+        <h2>Methodology & tooling</h2>
+        <ul class="contact">
+          <li><strong>Approach:</strong> scoping → recon → enumeration → exploitation → post‑exploitation → reporting.</li>
+          <li><strong>Web:</strong> discovery (dirs/params), auth/session testing, client‑side (XSS/CSRF), server‑side (SQLi, IDOR, file inclusion), SSRF basics.</li>
+          <li><strong>Network:</strong> subnet scanning, service fingerprinting, misconfiguration checks, weak credentials.</li>
+          <li><strong>Binary:</strong> crash triage, input crafting, stack overflow basics, intro to ROP; safe lab setups.</li>
+          <li><strong>Tools:</strong> Kali Linux, Nmap, ffuf/dirsearch, Burp Suite, OWASP ZAP, Metasploit, John/Hashcat, Wireshark, Hydra, gobuster.</li>
+          <li><strong>Hygiene:</strong> notes, timelines, screenshots, and reproducible PoCs; strong emphasis on responsible disclosure ethics.</li>
+        </ul>
+
+        
+
+        <h2>Highlights</h2>
+        <ul class="contact">
+          <li>Found and demonstrated web weaknesses (e.g., parameter tampering, XSS, SQLi) with practical mitigations.</li>
+          <li>Performed effective recon/enumeration to reveal reachable attack surfaces and misconfigurations.</li>
+          <li>Built repeatable testing habits and concise reporting tailored for developers and stakeholders.</li>
+        </ul>
+
+        <h2>Improvements</h2>
+        <ul class="contact">
+          <li>Harden note‑taking templates further (threat model, asset inventory, trust boundaries).</li>
+          <li>Deeper practice with binary exploitation (heap/ROP) and modern mitigations (ASLR, NX, PIE).</li>
+          <li>Automate recon baselines and wordlist tuning to speed up discovery while reducing noise.</li>
+        </ul>
+
+        <h2>What I learned</h2>
+        <ul class="contact">
+          <li>How to structure ethical hacking engagements end‑to‑end with a clear methodology.</li>
+          <li>How to prioritize and communicate vulnerabilities with actionable fixes.</li>
+          <li>How to use CTFs as a safe training ground for real‑world pentesting skills.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> SofiyaY. Built with HTML/CSS/JS.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+    });
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+</body>
+</html>
