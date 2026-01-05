@@ -153,8 +153,8 @@
     "grade": "",
     "repo": "https://github.com/SofiyaY/study-planner-javafx",
     "link": "",
-    "cardImage": "https://via.placeholder.com/1200x675.png?text=Study+Planner+%E2%80%94+JavaFX",
-    "image": "https://via.placeholder.com/1200x675.png?text=Study+Planner+%E2%80%94+JavaFX",
+  "cardImage": "assets/img/study-planner.png",
+  "image": "assets/img/study-planner.png",
     "imagePosition": "center center",
     "courseCode": "",
     "workType": "Personal"
