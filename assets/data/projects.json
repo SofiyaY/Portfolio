@@ -138,5 +138,25 @@
     "imagePosition": "center center",
     "courseCode": "IDATG2002",
     "workType": "Group"
+  },
+  {
+    "id": 14,
+    "title": "Study Planner (JavaFX)",
+    "description": "A polished desktop Study Planner built with JavaFX and Gradle. Manage tasks with title, due date, time estimates, and completion tracking. Includes a Home screen, modern UI theme, and keyboard-friendly workflow.",
+    "category": "other",
+    "tags": ["java", "javafx", "gradle", "desktop-app"],
+    "skills": ["Java", "JavaFX", "Gradle", "FXML", "CSS"],
+    "year": 2026,
+    "details": "projects/study-planner.html",
+    "report": "",
+    "download": "",
+    "grade": "",
+    "repo": "https://github.com/SofiyaY/study-planner-javafx",
+    "link": "",
+    "cardImage": "https://via.placeholder.com/1200x675.png?text=Study+Planner+%E2%80%94+JavaFX",
+    "image": "https://via.placeholder.com/1200x675.png?text=Study+Planner+%E2%80%94+JavaFX",
+    "imagePosition": "center center",
+    "courseCode": "",
+    "workType": "Personal"
   }
 ]
