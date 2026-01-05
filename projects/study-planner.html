@@ -28,12 +28,13 @@
     <section class="section">
       <div class="container">
         <h1>Study Planner (JavaFX)</h1>
-        <p class="muted">Personal Project • 2026</p>
+  <p class="muted">Personal project • 2026</p>
         <img src="https://via.placeholder.com/1200x675.png?text=Study+Planner+%E2%80%94+JavaFX" alt="Study Planner screenshot" style="width:100%; max-height:360px; object-fit: cover; object-position: center center; border: 1px solid var(--border); border-radius: 12px;" />
         <p>
-          A clean, focused desktop Study Planner built with JavaFX and Gradle. Quickly add tasks with a title, due date,
-          and a time estimate, then track completion in a responsive table view. The app includes a simple Home screen,
-          an accessible inline form, keyboard-friendly interactions, and a polished light theme.
+          This is a small practice app to learn the basics of Java and JavaFX. It’s not fancy, but it helped me get
+          comfortable with scenes, FXML, controllers, and styling. You can add tasks with a title, due date and time
+          estimate, and mark them as done. It starts on a simple Home screen and then shows a Tasks view with a table
+          and an inline form.
         </p>
 
         <div class="actions" style="margin: 12px 0; display: flex; gap: 8px; flex-wrap: wrap;">
@@ -41,38 +42,38 @@
           <a class="btn" href="../index.html#projects">Back to Projects</a>
         </div>
 
-        <h2>Highlights</h2>
+        <h2>What works now</h2>
         <ul class="skills">
-          <li>Modern JavaFX UI with a Home screen and Tasks view</li>
-          <li>Inline add form with validation (Title, Due Date, Estimate minutes)</li>
-          <li>TableView with readable headers, date formatting, and checkbox completion</li>
-          <li>Clean light theme: readable text, subtle shadows, polished buttons</li>
-          <li>Gradle build; Java 17; FXML + CSS separation</li>
+          <li>Home screen with a button to open the Tasks page</li>
+          <li>Inline add form (Title, Due Date, Estimate minutes) with simple validation</li>
+          <li>Table with formatted date and a checkbox to mark tasks as completed</li>
+          <li>Basic styling using application.css (kept simple on purpose)</li>
+          <li>Gradle build (Java 17) with FXML + CSS</li>
         </ul>
 
-        <h2>What I built</h2>
+        <h2>What I learned</h2>
         <ul class="contact">
-          <li><strong>Model:</strong> Task with JavaFX properties (title, dueDate, estimateMinutes, completed)</li>
-          <li><strong>Controller:</strong> Binds columns, formats dates, aligns estimate values, and handles add/delete</li>
-          <li><strong>Navigation:</strong> HomeController switches to Tasks while preserving styling</li>
-          <li><strong>Styling:</strong> application.css for the overall palette, hover states, and readable prompts</li>
+          <li>How to split UI into FXML views and use controllers to wire up actions</li>
+          <li>Binding TableView columns to model properties and formatting cells (e.g., LocalDate)</li>
+          <li>Basic input validation and keeping the UI responsive to keyboard use</li>
+          <li>Structuring a small JavaFX app and running it with Gradle</li>
         </ul>
 
         <h2>How to run (locally)</h2>
-        <p>Open the project folder in your IDE and run the Gradle task:</p>
+        <p>Open the project folder in your IDE and run the Gradle task. JDK 17 or newer is required.</p>
         <pre><code class="language-powershell"># From the project root
 # Option A: VS Code Gradle Tasks panel → run task 'run'
 # Option B: Terminal
 ./gradlew run
         </code></pre>
-        <p>Requirements: JDK 17+, Internet not required to run the app after dependencies are downloaded.</p>
+        <p>Internet is not required after dependencies are downloaded the first time.</p>
 
-        <h2>Possible extensions</h2>
+        <h2>What I’d improve next</h2>
         <ul class="contact">
-          <li>Task persistence (JSON/SQLite) to keep tasks between sessions</li>
-          <li>Filtering and sorting by due date or completion</li>
-          <li>Notifications for upcoming deadlines</li>
-          <li>Export/import task lists</li>
+          <li>Save tasks to disk (JSON or SQLite) so they persist between sessions</li>
+          <li>Filtering and sorting (e.g., by due date or completion)</li>
+          <li>Small UI cleanups and a more consistent theme</li>
+          <li>Maybe notifications for upcoming deadlines</li>
         </ul>
       </div>
     </section>
