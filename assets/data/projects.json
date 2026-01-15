@@ -158,5 +158,25 @@
     "imagePosition": "center center",
     "courseCode": "",
     "workType": "Personal"
+  },
+  {
+    "id": 15,
+    "title": "MealPlanner (React + Spring Boot)",
+    "description": "Full-stack meal planning app built as a learning project to explore TypeScript and Spring Boot for the first time. Developed with AI-assisted coding (GitHub Copilot) to accelerate learning new technologies. Features weekly meal planning, recipe management, grocery list generation, and pantry tracking.",
+    "category": "fullstack",
+    "tags": ["react", "typescript", "spring-boot", "tailwind", "vite"],
+    "skills": ["React", "TypeScript", "Spring Boot", "JPA", "H2", "Tailwind CSS", "TanStack Query", "Vite"],
+    "year": 2025,
+    "details": "projects/mealplanner.html",
+    "report": "",
+    "download": "assets/downloads/mealplanner.zip",
+    "grade": "",
+    "repo": "https://github.com/SofiyaY/MealPlanner",
+    "link": "",
+    "cardImage": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=600&fit=crop",
+    "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=600&fit=crop",
+    "imagePosition": "center center",
+    "courseCode": "",
+    "workType": "Personal"
   }
 ]

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MealPlanner (React + Spring Boot) — Portfolio</title>
+  <meta name="description" content="Full-stack meal planning app built with React, TypeScript, and Spring Boot. Features weekly planning, recipes, grocery lists, and pantry tracking." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">SofiyaY</a>
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>MealPlanner (React + Spring Boot)</h1>
+        <p class="muted">Personal project • 2025</p>
+        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=600&fit=crop" alt="MealPlanner - healthy food preparation" style="width:100%; max-height:360px; object-fit: cover; object-position: center center; border: 1px solid var(--border); border-radius: 12px;" />
+        
+        <p>
+          A full-stack meal planning application built as a learning project to explore <strong>TypeScript</strong> and 
+          <strong>Spring Boot</strong> for the first time. I developed this with AI-assisted coding (GitHub Copilot) to 
+          accelerate learning these new technologies — using AI as a learning tool to understand unfamiliar patterns 
+          and best practices while building something practical.
+        </p>
+
+        <div class="actions" style="margin: 12px 0; display: flex; gap: 8px; flex-wrap: wrap;">
+          <a class="btn" href="https://github.com/SofiyaY/MealPlanner" target="_blank" rel="noopener">View Repository</a>
+          <a class="btn" href="../assets/downloads/mealplanner.zip" download>Download ZIP</a>
+          <a class="btn" href="../index.html#projects">Back to Projects</a>
+        </div>
+
+        <h2>Features</h2>
+        <ul class="skills">
+          <li><strong>Weekly Meal Planning</strong> — Drag-and-drop or click to assign recipes to each day of the week</li>
+          <li><strong>Recipe Management</strong> — Browse 12 sample recipes with images, or add your own with custom ingredients</li>
+          <li><strong>Grocery List</strong> — Auto-generated shopping list based on planned meals, grouped by category</li>
+          <li><strong>Pantry Tracking</strong> — Track what you have at home; grocery list subtracts pantry items automatically</li>
+          <li><strong>Responsive UI</strong> — Clean Tailwind CSS design that works on desktop and mobile</li>
+        </ul>
+
+        <h2>Tech Stack</h2>
+        <h3>Frontend</h3>
+        <ul class="contact">
+          <li><strong>React 18</strong> with TypeScript</li>
+          <li><strong>Vite</strong> for fast development and builds</li>
+          <li><strong>Tailwind CSS</strong> for styling</li>
+          <li><strong>TanStack Query</strong> for data fetching and caching</li>
+          <li><strong>React Router</strong> for navigation</li>
+        </ul>
+
+        <h3>Backend</h3>
+        <ul class="contact">
+          <li><strong>Spring Boot 3</strong> with Java 17</li>
+          <li><strong>Spring Data JPA</strong> for database access</li>
+          <li><strong>H2 Database</strong> (in-memory, easy to swap for PostgreSQL)</li>
+          <li><strong>RESTful API</strong> with standard CRUD endpoints</li>
+        </ul>
+
+        <h2>What I Learned</h2>
+        <ul class="contact">
+          <li>TypeScript basics: interfaces, type annotations, generics with React components</li>
+          <li>Spring Boot project structure: controllers, services, repositories, and entities</li>
+          <li>How to connect a React frontend to a Spring Boot API</li>
+          <li>Using TanStack Query for server state management instead of manual fetch + useState</li>
+          <li>Tailwind CSS utility classes and responsive design patterns</li>
+          <li>Effective use of AI coding assistants as a learning accelerator</li>
+        </ul>
+
+        <h2>How to Run (Locally)</h2>
+        <p>You need Node.js 18+ and Java 17+ installed.</p>
+        
+        <h3>Backend</h3>
+        <pre><code class="language-powershell"># From the project root
+cd backend
+./mvnw spring-boot:run
+# API runs on http://localhost:8080
+        </code></pre>
+
+        <h3>Frontend</h3>
+        <pre><code class="language-powershell"># In a new terminal
+cd frontend
+npm install
+npm run dev
+# Opens on http://localhost:5173
+        </code></pre>
+
+        <p>The frontend includes sample data in localStorage, so you can explore without starting the backend.</p>
+
+        <h2>Future Improvements</h2>
+        <ul class="contact">
+          <li>User authentication and personal accounts</li>
+          <li>Persistent database (PostgreSQL or MySQL)</li>
+          <li>Recipe import from URLs</li>
+          <li>Nutritional information and calorie tracking</li>
+          <li>Mobile app version with React Native</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> SofiyaY. Built with HTML/CSS/JS.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+    });
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+</body>
+</html>
